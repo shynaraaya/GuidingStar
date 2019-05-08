@@ -24,13 +24,6 @@ class Flight(models.Model):
 	numSeatsRemainingBusiness = models.IntegerField()
 	numSeatsRemainingFirst = models.IntegerField()
 
-class Hotel(models.Model):
-	dailyCost = models.DecimalField(max_digits=6,decimal_places=2)
-	address = models.CharField(max_length=30)
-	city = models.CharField(max_length=30)
-	companyName = models.CharField(max_length=30,default='hotel')
-
-
 class FlightList(models.Model):
     name = models.CharField(max_length=200)
 
@@ -43,6 +36,30 @@ class FlightList(models.Model):
             'id': self.id,
         }
 
+class Hotel(models.Model):
+	dailyCost = models.DecimalField(max_digits=6,decimal_places=2)
+	address = models.CharField(max_length=30)
+	city = models.CharField(max_length=30)
+	companyName = models.CharField(max_length=30,default='hotel')
+
+<<<<<<< HEAD
+
+class FlightList(models.Model):
+=======
+class HotelList(models.Model):
+>>>>>>> 5d5623dd5a8ec9205468a9d50fae7414e48cbd55
+    name = models.CharField(max_length=200)
+
+    def __str__(self):
+        return self.name
+
+    def to_json(self):
+        return {
+            'name': self.name,
+            'id': self.id,
+        }
+
+<<<<<<< HEAD
 class HotelList(models.Model):
     name = models.CharField(max_length=200)
 
@@ -54,3 +71,5 @@ class HotelList(models.Model):
             'name': self.name,
             'id': self.id,
         }
+=======
+>>>>>>> 5d5623dd5a8ec9205468a9d50fae7414e48cbd55

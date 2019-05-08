@@ -4,9 +4,12 @@ from .models import Flight, Hotel, FlightList, HotelList
 class FlightListSerializer(serializers.ModelSerializer):
     id = serializers.IntegerField(read_only=True)
     name = serializers.CharField(required=True)
+<<<<<<< HEAD
 
 
 class FlightListSerializer2(serializers.ModelSerializer):
+=======
+>>>>>>> 5d5623dd5a8ec9205468a9d50fae7414e48cbd55
     class Meta:
         model = FlightList
         fields = ['id', 'name']
@@ -14,6 +17,7 @@ class FlightListSerializer2(serializers.ModelSerializer):
 class HotelListSerializer(serializers.ModelSerializer):
     id = serializers.IntegerField(read_only=True)
     name = serializers.CharField(required=True)
+<<<<<<< HEAD
     def create(self, validated_data):
         hotel = Hotel(**validated_data)
         hotel.save()
@@ -60,3 +64,10 @@ class HotelSerializer2(serializers.ModelSerializer):
     class Meta:
         model = Hotel
         fields = ['id', 'cost', 'city']
+=======
+    class Meta:
+        model = HotelList
+        fields = ['id', 'name']
+    
+
+>>>>>>> 5d5623dd5a8ec9205468a9d50fae7414e48cbd55
