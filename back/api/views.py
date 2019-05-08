@@ -2,7 +2,6 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from django.http import Http404
 from django.views.decorators.csrf import csrf_exempt
-
 from .models import User, Flight, Hotel
 
 @csrf_exempt
@@ -36,3 +35,4 @@ def index(request):
 			return render(request, 'index.html',{"results":"yes", "some_list": flights, "class":flightClass})
 	else:
 		return render(request, 'index.html')
+

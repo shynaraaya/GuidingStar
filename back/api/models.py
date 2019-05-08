@@ -2,13 +2,10 @@ from django.db import models
 
 class User(models.Model):
 	username = models.CharField(max_length=40)
-	email = models.CharField(max_length=35, unique=True, primary_key=True)
+	email = models.EmailField(unique=True, primary_key=True)
 	password = models.CharField(max_length=20)
-
-class Location(models.Model):
-	city = models.CharField(max_length=30)
-	region = models.CharField(max_length=2)
-	image = models.CharField(max_length=200)
+	def __str__(self):
+		return '{}: {}, {}, {}'.format(self.id, self.username, self.email, self.password)
 
 class Review(models.Model):
 	review = models.CharField(max_length=1000)
