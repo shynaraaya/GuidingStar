@@ -5,6 +5,17 @@ class User(models.Model):
 	email = models.CharField(max_length=35, unique=True, primary_key=True)
 	password = models.CharField(max_length=20)
 
+class Location(models.Model):
+	city = models.CharField(max_length=30)
+	region = models.CharField(max_length=2)
+	image = models.CharField(max_length=200)
+
+class Review(models.Model):
+	review = models.CharField(max_length=1000)
+	rating = models.IntegerField()
+	author = models.CharField(max_length=30)
+	submissionDate = models.DateField()
+
 class Flight(models.Model):
 	companyName = models.CharField(max_length=30)
 	sourceLocation = models.CharField(max_length=30)
@@ -23,3 +34,4 @@ class Hotel(models.Model):
 	address = models.CharField(max_length=30)
 	city = models.CharField(max_length=30)
 	companyName = models.CharField(max_length=30,default='hotel')
+
