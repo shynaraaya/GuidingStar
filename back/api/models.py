@@ -4,8 +4,6 @@ class User(models.Model):
 	username = models.CharField(max_length=40)
 	email = models.EmailField(unique=True, primary_key=True)
 	password = models.CharField(max_length=20)
-	def __str__(self):
-		return '{}: {}, {}, {}'.format(self.id, self.username, self.email, self.password)
 
 class Review(models.Model):
 	review = models.CharField(max_length=1000)
@@ -32,3 +30,27 @@ class Hotel(models.Model):
 	city = models.CharField(max_length=30)
 	companyName = models.CharField(max_length=30,default='hotel')
 
+
+class FlightList(models.Model):
+    name = models.CharField(max_length=200)
+
+    def __str__(self):
+        return self.name
+
+    def to_json(self):
+        return {
+            'name': self.name,
+            'id': self.id,
+        }
+
+class HotelList(models.Model):
+    name = models.CharField(max_length=200)
+
+    def __str__(self):
+        return self.name
+
+    def to_json(self):
+        return {
+            'name': self.name,
+            'id': self.id,
+        }
