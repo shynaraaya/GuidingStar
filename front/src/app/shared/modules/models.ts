@@ -25,10 +25,12 @@ export interface IFlight {
 
 export interface Hotel {
   id: number;
+  poster: string;
   dailyCost: any;
   address: string;
   city: string;
   companyName: string;
+  rating: number;
 }
 
 export interface HotelList {
