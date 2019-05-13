@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from api import models
+from api.models import *
 from django.contrib.auth.models import User
 
 class UserSerializer(serializers.Serializer):
@@ -30,9 +30,9 @@ class FlightSerializer(serializers.Serializer):
 
 class HotelSerializer(serializers.Serializer):
     id = serializers.IntegerField(read_only=True)
-    name = serializers.CharField(read_only=True)
-    cost = serializers.DecimalField(max_digits=10, decimal_places=6)
-    location = serializers.CharField(read_only=True)
+    companyName = serializers.CharField(read_only=True)
+    dailyCost = serializers.DecimalField(max_digits=10, decimal_places=6)
+    city = serializers.CharField(read_only=True)
     class Meta:
         model = Hotel
         fields = ('id', 'name', 'cost', 'location')

@@ -9,7 +9,7 @@ class CategoryManager(models.Manager):
 
 class Review(models.Model):
     review = models.CharField(max_length=1000)
-    rating = models.IntegerField()
+    rating = models.IntegerField(default=3)
     submissionDate = models.DateField()
     created_by = models.ForeignKey(User, on_delete=models.CASCADE, default=2)
     objects = CategoryManager()
