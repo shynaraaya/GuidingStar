@@ -21,9 +21,9 @@ class ReviewSerializer(serializers.Serializer):
 
 class FlightSerializer(serializers.Serializer):
     id = serializers.IntegerField(read_only=True)
-    company = serializers.CharField(required=True)
-    source = serializers.CharField(required=True)
-    destination = serializers.CharField(required=True)
+    companyName = serializers.CharField(required=True)
+    sourceLocation = serializers.CharField(required=True)
+    destinationLocation = serializers.CharField(required=True)
     class Meta:
         model = Flight
         fields = ('id', 'source', 'destination', 'company')
