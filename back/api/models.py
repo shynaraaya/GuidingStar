@@ -9,7 +9,7 @@ class CategoryManager(models.Manager):
 
 class Review(models.Model):
     review = models.CharField(max_length=1000)
-    rating = models.IntegerField()
+    rating = models.IntegerField(default=3)
     submissionDate = models.DateField()
     created_by = models.ForeignKey(User, on_delete=models.CASCADE, default=2)
     objects = CategoryManager()
@@ -61,7 +61,7 @@ class Hotel(models.Model):
     dailyCost = models.DecimalField(max_digits=6, decimal_places=2)
     address = models.CharField(max_length=30)
     city = models.CharField(max_length=300)
-    stars = models.IntegerField()
+    hotels = models.IntegerField(default=3)
     poster = models.CharField(max_length=999, default='poster')
     companyName = models.CharField(max_length=30, default='hotel')
 
