@@ -1,75 +1,82 @@
 from django.db import models
+from django.contrib.auth.models import User
 
-class User(models.Model):
-	username = models.CharField(max_length=40)
-	email = models.EmailField(unique=True, primary_key=True)
-	password = models.CharField(max_length=20)
+
+class CategoryManager(models.Manager):
+    def for_user(self, user):
+        return self.filter(created_by=user)
+
 
 class Review(models.Model):
-	review = models.CharField(max_length=1000)
-	rating = models.IntegerField()
-	author = models.CharField(max_length=30)
-	submissionDate = models.DateField()
+    review = models.CharField(max_length=1000)
+    rating = models.IntegerField()
+    submissionDate = models.DateField()
+    created_by = models.ForeignKey(User, on_delete=models.CASCADE, default=2)
+    objects = CategoryManager()
+
+    class Meta:
+        verbose_name = 'Review'
+        verbose_name_plural = 'Reviews'
+
+    def __str__(self):
+        return '{}: {}, {}'.format(self.id, self.created_by, self.rating)
+
+    def to_json(self):
+        return {
+            'id': self.id,
+            'author': self.created_by,
+            'rating': self.rating
+        }
+
 
 class Flight(models.Model):
-	companyName = models.CharField(max_length=30)
-	sourceLocation = models.CharField(max_length=30)
-	destinationLocation = models.CharField(max_length=30)
-	departureDate = models.DateField()
-	departureTime = models.TimeField()
-	fareEconomy = models.DecimalField(max_digits=6,decimal_places=2)
-	fareBusiness = models.DecimalField(max_digits=6,decimal_places=2)
-	fareFirst = models.DecimalField(max_digits=6,decimal_places=2)
-	numSeatsRemainingEconomy = models.IntegerField()
-	numSeatsRemainingBusiness = models.IntegerField()
-	numSeatsRemainingFirst = models.IntegerField()
+    companyName = models.CharField(max_length=300)
+    sourceLocation = models.CharField(max_length=30)
+    destinationLocation = models.CharField(max_length=30)
+    departureDate = models.DateField()
+    departureTime = models.TimeField()
+    fareEconomy = models.DecimalField(max_digits=6, decimal_places=2)
+    fareBusiness = models.DecimalField(max_digits=6, decimal_places=2)
+    fareFirst = models.DecimalField(max_digits=6, decimal_places=2)
+    numSeatsRemainingEconomy = models.IntegerField()
+    numSeatsRemainingBusiness = models.IntegerField()
+    numSeatsRemainingFirst = models.IntegerField()
 
-class FlightList(models.Model):
-    name = models.CharField(max_length=200)
+    class Meta:
+        verbose_name = 'Flight'
+        verbose_name_plural = 'Flights'
 
     def __str__(self):
-        return self.name
+        return '{}: {}, {}'.format(self.id, self.sourceLocation, self.destinationLocation)
 
     def to_json(self):
         return {
-            'name': self.name,
             'id': self.id,
+            'Source': self.sourceLocation,
+            'Destination': self.destinationLocation
         }
+
 
 class Hotel(models.Model):
-	dailyCost = models.DecimalField(max_digits=6,decimal_places=2)
-	address = models.CharField(max_length=30)
-	city = models.CharField(max_length=30)
-	companyName = models.CharField(max_length=30,default='hotel')
+    dailyCost = models.DecimalField(max_digits=6, decimal_places=2)
+    address = models.CharField(max_length=30)
+    city = models.CharField(max_length=300)
+    stars = models.IntegerField()
+    poster = models.CharField(max_length=999, default='poster')
+    companyName = models.CharField(max_length=30, default='hotel')
 
-<<<<<<< HEAD
-
-class FlightList(models.Model):
-=======
-class HotelList(models.Model):
->>>>>>> 5d5623dd5a8ec9205468a9d50fae7414e48cbd55
-    name = models.CharField(max_length=200)
+    class Meta:
+        verbose_name = 'Hotel'
+        verbose_name_plural = 'Hotels'
 
     def __str__(self):
-        return self.name
+        return '{}: {}, {}'.format(self.id, self.companyName, self.city)
 
     def to_json(self):
         return {
-            'name': self.name,
             'id': self.id,
+            'name': self.companyName,
+            'city': self.city
         }
 
-<<<<<<< HEAD
-class HotelList(models.Model):
-    name = models.CharField(max_length=200)
 
-    def __str__(self):
-        return self.name
-
-    def to_json(self):
-        return {
-            'name': self.name,
-            'id': self.id,
-        }
-=======
->>>>>>> 5d5623dd5a8ec9205468a9d50fae7414e48cbd55

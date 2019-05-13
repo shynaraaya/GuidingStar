@@ -1,73 +1,40 @@
 from rest_framework import serializers
-from .models import Flight, Hotel, FlightList, HotelList
+from api.models import *
+from django.contrib.auth.models import User
 
-class FlightListSerializer(serializers.ModelSerializer):
-    id = serializers.IntegerField(read_only=True)
-    name = serializers.CharField(required=True)
-<<<<<<< HEAD
-
-
-class FlightListSerializer2(serializers.ModelSerializer):
-=======
->>>>>>> 5d5623dd5a8ec9205468a9d50fae7414e48cbd55
+class UserSerializer(serializers.Serializer):
     class Meta:
-        model = FlightList
-        fields = ['id', 'name']
+        model = User
+        fields = ('id', 'username', 'email')
 
-class HotelListSerializer(serializers.ModelSerializer):
+
+class ReviewSerializer(serializers.Serializer):
     id = serializers.IntegerField(read_only=True)
-    name = serializers.CharField(required=True)
-<<<<<<< HEAD
-    def create(self, validated_data):
-        hotel = Hotel(**validated_data)
-        hotel.save()
-        return hotel
-
-    def update(self, instance, validated_data):
-        instance.name = validated_data.get('name', instance.name)
-        instance.dailyCost = validated_data.get('Daily Cost', instance.dailyCost)
-        instance.address = validated_data.get('Address', instance.address)
-        instance.city = validated_data.get('City', instance.city)
-        instance.companyName = validated_data.get('Company Name', instance.companyName)
-        instance.save()
-        return instance
-
-class HotelListSerializer2(serializers.ModelSerializer):
+    review = serializers.CharField(required=True)
+    rating = serializers.IntegerField(required=True)
+    submission_date = serializers.DateField(required=True)
+    author = UserSerializer(read_only=True)
     class Meta:
-        model = HotelList
-        fields = ['id', 'name']
+        model = Review
+        fields = '__all__'
 
-class HotelSerializer(serializers.ModelSerializer):
+
+class FlightSerializer(serializers.Serializer):
     id = serializers.IntegerField(read_only=True)
-    dailyCost = serializers.DecimalField(required=True, max_digits=6, decimal_places=6)
-    address = serializers.CharField(required=True)
-    city = serializers.CharField(required=True)
-    companyName = serializers.CharField(required=True)
-
-class FlightSerializer(serializers.ModelSerializer):
-    id = serializers.IntegerField(read_only=True)
-    companyName = serializers.CharField(required=True)
-    sourceLocation = serializers.CharField(required=True)
-    destinationLocation = serializers.CharField(required=True)
-    departureDate = serializers.DateField(required=True)
-    departureTime = serializers.TimeField(required=True)
-    numSeatsRemainingEconomy = serializers.IntegerField(required=True)
-    numSeatsRemainingBusiness = serializers.IntegerField(required=True)
-    numSeatsRemainingFirst = serializers.IntegerField(required=True)
-
-class FlightSerializer2(serializers.ModelSerializer):
+    company = serializers.CharField(required=True)
+    source = serializers.CharField(required=True)
+    destination = serializers.CharField(required=True)
     class Meta:
         model = Flight
-        fields = ['id', 'companyName', 'sourceLocation', 'destinationLocation']
+        fields = ('id', 'source', 'destination', 'company')
 
-class HotelSerializer2(serializers.ModelSerializer):
+class HotelSerializer(serializers.Serializer):
+    id = serializers.IntegerField(read_only=True)
+    name = serializers.CharField(read_only=True)
+    cost = serializers.DecimalField(max_digits=10, decimal_places=6)
+    location = serializers.CharField(read_only=True)
     class Meta:
         model = Hotel
-        fields = ['id', 'cost', 'city']
-=======
-    class Meta:
-        model = HotelList
-        fields = ['id', 'name']
-    
+        fields = ('id', 'name', 'cost', 'location')
 
->>>>>>> 5d5623dd5a8ec9205468a9d50fae7414e48cbd55
+
