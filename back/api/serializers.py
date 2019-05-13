@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from api.models import *
+from api import models
 from django.contrib.auth.models import User
 
 class UserSerializer(serializers.Serializer):
@@ -36,5 +36,4 @@ class HotelSerializer(serializers.Serializer):
     class Meta:
         model = Hotel
         fields = ('id', 'name', 'cost', 'location')
-
 
