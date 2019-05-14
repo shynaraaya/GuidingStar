@@ -15,6 +15,9 @@ import {HttpClientModule} from '@angular/common/http';
 import {MainService} from './shared/services/main.service';
 import {ProviderService} from './shared/services/provider.service';
 import { BasketComponent } from './components/basket/basket.component';
+import { SearchCompComponent } from './components/search-comp/search-comp.component';
+import { ReviewsComponent } from './components/reviews/reviews.component';
+import { ReviewListComponent } from './components/review-list/review-list.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +30,10 @@ import { BasketComponent } from './components/basket/basket.component';
     LoginComponent,
     FooterComponent,
     MainComponent,
-    BasketComponent
+    BasketComponent,
+    SearchCompComponent,
+    ReviewsComponent,
+    ReviewListComponent
   ],
   imports: [
     HttpClientModule,

@@ -18,4 +18,7 @@ export class HeaderComponent implements OnInit {
   clickF() {
     this.router.navigateByUrl('flights').then();
   }
+  clickR() {
+    this.router.navigateByUrl('reviews').then();
+  }
 }
