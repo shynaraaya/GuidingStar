@@ -18,6 +18,7 @@ import { BasketComponent } from './components/basket/basket.component';
 import { SearchCompComponent } from './components/search-comp/search-comp.component';
 import { ReviewsComponent } from './components/reviews/reviews.component';
 import { ReviewListComponent } from './components/review-list/review-list.component';
+import { FormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { ReviewListComponent } from './components/review-list/review-list.compon
   imports: [
     HttpClientModule,
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [
     MainService,

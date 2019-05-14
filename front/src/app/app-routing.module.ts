@@ -5,6 +5,7 @@ import {HotelListComponent} from './components/hotel-list/hotel-list.component';
 import {FlightListComponent} from './components/flight-list/flight-list.component';
 import { MainComponent } from './components/main/main.component';
 import {ReviewListComponent} from './components/review-list/review-list.component';
+import { LoginComponent } from './components/login/login.component';
 
 const routes: Routes = [
   {
@@ -18,6 +19,10 @@ const routes: Routes = [
   {
     path: 'reviews',
     component: ReviewListComponent
+  },
+  {
+    path: 'login',
+    component: LoginComponent
   }
 ];
 

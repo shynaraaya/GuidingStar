@@ -8,4 +8,6 @@ urlpatterns = [
     path('hotels/<int:pk>/', views.HotelDetail.as_view()),
     path('reviews/', views.ReviewGetCreate.as_view()),
     path('reviews/<int:pk>/', views.ReviewRetrieve.as_view()),
+    path('login/', views.login),
+    path('logout/', views.logout)
 ]

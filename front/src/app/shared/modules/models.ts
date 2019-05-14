@@ -43,3 +43,13 @@ export interface FlightList {
   name: string;
 }
 
+export interface User{
+  username: string; 
+  password: string;
+}
+
+export interface IAuthResponse{
+  token: string;
+  is_staff: boolean;
+  username: string;
+}

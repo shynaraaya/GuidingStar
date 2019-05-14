@@ -27,7 +27,6 @@ SECRET_KEY = 'bw@9vfrfkqvrpyagziyh#gd9jd74y!y1$)q4%ccb0i_r7^8aq7'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
 
 
 
@@ -43,8 +42,8 @@ INSTALLED_APPS = [
     'corsheaders',
     'api',
     'rest_framework',
+    'rest_framework.authentication',
     'rest_framework.authtoken',
-    'user'
 ]
 
 MIDDLEWARE = [
@@ -60,9 +59,6 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'back.urls'
 CORS_ORIGIN_ALLOW_ALL = True
-CORS_ORIGIN_WHITELIST = [
-    "http://127.0.0.1:9000",
-]
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
