@@ -43,3 +43,7 @@ export interface FlightList {
   name: string;
 }
 
+export interface IAuthResponse{
+  token: string;
+}
+
