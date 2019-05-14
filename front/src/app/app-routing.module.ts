@@ -4,12 +4,9 @@ import {HeaderComponent} from './components/header/header.component';
 import {HotelListComponent} from './components/hotel-list/hotel-list.component';
 import {FlightListComponent} from './components/flight-list/flight-list.component';
 import { MainComponent } from './components/main/main.component';
+import {ReviewListComponent} from './components/review-list/review-list.component';
 
 const routes: Routes = [
-  {
-    path: '/',
-    component: MainComponent
-  },
   {
     path: 'hotels',
     component: HotelListComponent
@@ -17,6 +14,10 @@ const routes: Routes = [
   {
     path: 'flights',
     component: FlightListComponent
+  },
+  {
+    path: 'reviews',
+    component: ReviewListComponent
   }
 ];
 

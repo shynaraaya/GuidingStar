@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {Hotel, Flight} from '../modules/models';
+import {Hotel, Flight, Review} from '../modules/models';
 import {MainService} from './main.service';
 import {HttpClient} from '@angular/common/http';
 
@@ -17,5 +17,8 @@ export class ProviderService extends MainService{
   }
   getFlights(): Promise<Flight[]> {
     return this.get('http://localhost:8000/api/flights/', {});
+  }
+  getReviews(): Promise<Review[]> {
+    return this.get('http://localhost:8000/api/reviews/', {});
   }
 }
