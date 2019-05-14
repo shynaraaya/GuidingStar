@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {ProviderService} from '../../shared/services/provider.service';
+import {Hotel} from '../../shared/modules/models';
 
 @Component({
   selector: 'app-hotel-list',
@@ -7,9 +9,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HotelListComponent implements OnInit {
 
-  constructor() { }
-
+  constructor(private provider: ProviderService) { }
+  hotels: Hotel[] = [];
   ngOnInit() {
+    this.provider.getHotels().then( res => {
+      this.hotels = res;
+      console.log(res);
+    });
   }
 
 }

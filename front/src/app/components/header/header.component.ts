@@ -12,8 +12,7 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit() {
   }
-  click() {
-    // asdsdffsd
-    this.router.navigateByUrl('main').then();
+  clickH() {
+    this.router.navigateByUrl('hotels').then();
   }
 }

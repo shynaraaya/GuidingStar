@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {ProviderService} from '../../shared/services/provider.service';
+import {Flight} from '../../shared/modules/models';
 
 @Component({
   selector: 'app-flight-list',
@@ -7,9 +9,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FlightListComponent implements OnInit {
 
-  constructor() { }
-
+  constructor(private provider: ProviderService) { }
+  flights: Flight[] = [];
   ngOnInit() {
+    this.provider.getFlights().then(res => {
+      this.flights = res;
+      console.log(res);
+    });
   }
-
 }

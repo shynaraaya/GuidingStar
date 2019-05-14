@@ -10,6 +10,9 @@ import { FlightComponent } from './components/flight/flight.component';
 import { FlightListComponent } from './components/flight-list/flight-list.component';
 import { LoginComponent } from './components/login/login.component';
 import { FooterComponent } from './components/footer/footer.component';
+import {HttpClientModule} from '@angular/common/http';
+import {MainService} from './shared/services/main.service';
+import {ProviderService} from './shared/services/provider.service';
 
 @NgModule({
   declarations: [
@@ -23,10 +26,14 @@ import { FooterComponent } from './components/footer/footer.component';
     FooterComponent
   ],
   imports: [
+    HttpClientModule,
     BrowserModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [
+    MainService,
+    ProviderService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

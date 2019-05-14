@@ -12,6 +12,7 @@ export class HotelComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    console.log(this.hotel);
   }
 
 }

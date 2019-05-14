@@ -1,6 +1,6 @@
 import {Time} from '@angular/common';
 
-export interface IReview {
+export interface Review {
   id: number;
   review: string;
   rating: number;
@@ -8,7 +8,7 @@ export interface IReview {
   submissionDate: Date;
 }
 
-export interface IFlight {
+export interface Flight {
   id: number;
   companyName: string;
   sourceLocation: string;
