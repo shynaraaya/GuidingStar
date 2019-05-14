@@ -1,10 +1,11 @@
 <div class = "container">
   <div class = "flight-info">
     <p class="flight-name">{{flight.companyName}}</p>
-    <p class=""
-    <p class="flight-city">{{hotel.city}}</p>
-    <p class="flight-cost">{{hotel.dailyCost}}</p>
-    <p class="flight-address">{{hotel.address}}</p>
+    <p class="flight-location">{{flight.sourceLocation}} - {{flight.destinationLocation}}</p>
+    <p class="flight-departure">{{flight.departureDate}} {{flight.departureTime}}</p>
+    <p class="fare-economy">Economy :{{flight.fareEconomy}}$ , {{flight.numSeatsRemainingEconomy}} seats</p>
+    <p class="fare-business">Business :{{flight.fareBusiness}}$ , {{flight.numSeatsRemainingBusiness}} seats</p>
+    <p class="fare-First">First :{{flight.fareFirst}}$ , {{flight.numSeatsRemainingFirst}} seats</p>
     <button class="btn">Select</button>
   </div>
 </div>
