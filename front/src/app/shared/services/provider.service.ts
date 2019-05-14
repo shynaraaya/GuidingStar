@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {Hotel,Flight} from '../modules/models';
+import {Hotel, Flight} from '../modules/models';
 import {MainService} from './main.service';
 import {HttpClient} from '@angular/common/http';
 
