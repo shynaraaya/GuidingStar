@@ -24,6 +24,13 @@ class FlightSerializer(serializers.Serializer):
     companyName = serializers.CharField(required=True)
     sourceLocation = serializers.CharField(required=True)
     destinationLocation = serializers.CharField(required=True)
+    fareEconomy = serializers.DecimalField(max_digits=6, decimal_places=2)
+    fareBusiness = serializers.DecimalField(max_digits=6, decimal_places=2)
+    fareFirst = serializers.DecimalField(max_digits=6, decimal_places=2)
+    numSeatsRemainingEconomy = serializers.IntegerField()
+    numSeatsRemainingBusiness = serializers.IntegerField()
+    numSeatsRemainingFirst = serializers.IntegerField()
+
     class Meta:
         model = Flight
         fields = ('id', 'source', 'destination', 'company')
