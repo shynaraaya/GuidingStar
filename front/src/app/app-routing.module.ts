@@ -5,8 +5,13 @@ import {HotelListComponent} from './components/hotel-list/hotel-list.component';
 import {FlightListComponent} from './components/flight-list/flight-list.component';
 import { MainComponent } from './components/main/main.component';
 import {ReviewListComponent} from './components/review-list/review-list.component';
+import {SearchCompComponent} from './components/search-comp/search-comp.component';
 
 const routes: Routes = [
+  {
+    path: 'search',
+    component: SearchCompComponent
+  },
   {
     path: 'hotels',
     component: HotelListComponent
