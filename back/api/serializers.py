@@ -12,7 +12,7 @@ class ReviewSerializer(serializers.Serializer):
     id = serializers.IntegerField(read_only=True)
     review = serializers.CharField(required=True)
     rating = serializers.IntegerField(required=True)
-    submission_date = serializers.DateField(required=True)
+    submissionDate = serializers.DateField(required=True)
     author = UserSerializer(read_only=True)
     class Meta:
         model = Review
