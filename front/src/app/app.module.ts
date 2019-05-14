@@ -18,7 +18,12 @@ import { BasketComponent } from './components/basket/basket.component';
 import { SearchCompComponent } from './components/search-comp/search-comp.component';
 import { ReviewsComponent } from './components/reviews/reviews.component';
 import { ReviewListComponent } from './components/review-list/review-list.component';
+<<<<<<< HEAD
 import { FormsModule} from '@angular/forms';
+=======
+import {FormsModule} from '@angular/forms';
+import { AuthInterceptor } from './components/login/AuthInterceptor';
+>>>>>>> 8e2fc6d35b92d0d72f425865667caba6c689858c
 
 @NgModule({
   declarations: [

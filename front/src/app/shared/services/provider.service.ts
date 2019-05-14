@@ -2,16 +2,25 @@ import { Injectable } from '@angular/core';
 import {Hotel, Flight, Review, IAuthResponse} from '../modules/models';
 import {MainService} from './main.service';
 import {HttpClient} from '@angular/common/http';
+<<<<<<< HEAD
 import * as moment from 'moment'
+=======
+import { promise } from 'protractor';
+>>>>>>> 8e2fc6d35b92d0d72f425865667caba6c689858c
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProviderService extends MainService{
+<<<<<<< HEAD
 public username: string;
 public logged = false;
 public isAdmin = false;
 public password: string;
+=======
+  public username: string;
+  public logged = false;
+>>>>>>> 8e2fc6d35b92d0d72f425865667caba6c689858c
 
   constructor(http: HttpClient) {
     super(http);
@@ -33,6 +42,7 @@ public password: string;
   getReviews(): Promise<Review[]> {
     return this.get('http://localhost:8000/api/reviews/', {});
   }
+<<<<<<< HEAD
 
   getMe(){
     return this.get('http://localhost:8000/user/me', {});
@@ -61,3 +71,18 @@ public password: string;
       })
     }
   };
+=======
+  auth(login: any, password: any) : Promise<IAuthResponse>{
+    return this.post('http://localhost:8000/user/login/',{
+      username: login,
+      password: password
+    });
+  }
+
+  logout() : Promise<any>{
+    return this.post('http://localhost:8000/api/logout/', {
+
+    });
+  }
+}
+>>>>>>> 8e2fc6d35b92d0d72f425865667caba6c689858c

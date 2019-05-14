@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <div class="modal" id = "modal" >
   <div class="modal__main-content">
     <div class="modal__exit" id = "exit" (click)="hideModal()">X</div>
@@ -15,3 +16,21 @@
     </div>
   </div>
 </div>
+=======
+<ng-container *ngIf="!authorized; else NotAuth">
+  <h1>Login Page</h1>
+  <input placeholder="Login" type="text" id="username" [(ngModel)]="login" [ngModelOptions]="{standalone:true}"/>
+  <br>
+  <input placeholder="Password" type="password"  id="password" [(ngModel)]="password" [ngModelOptions]="{standalone:true}"/>
+  <br>
+  <button (click)="auth()">Login</button>
+</ng-container>
+
+<ng-template #NotAuth>
+  <h1>Logged in!</h1>
+  
+  <button (click)="logout()">Log out</button>
+</ng-template>
+
+
+>>>>>>> 8e2fc6d35b92d0d72f425865667caba6c689858c
