@@ -19,6 +19,8 @@ import { SearchCompComponent } from './components/search-comp/search-comp.compon
 import { ReviewsComponent } from './components/reviews/reviews.component';
 import { ReviewListComponent } from './components/review-list/review-list.component';
 import {FormsModule} from '@angular/forms';
+import { AuthInterceptor } from './components/login/AuthInterceptor';
+
 
 @NgModule({
   declarations: [

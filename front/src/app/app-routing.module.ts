@@ -6,6 +6,8 @@ import {FlightListComponent} from './components/flight-list/flight-list.componen
 import { MainComponent } from './components/main/main.component';
 import {ReviewListComponent} from './components/review-list/review-list.component';
 import {SearchCompComponent} from './components/search-comp/search-comp.component';
+import { LoginComponent } from './components/login/login.component';
+
 
 const routes: Routes = [
   {
@@ -23,6 +25,10 @@ const routes: Routes = [
   {
     path: 'reviews',
     component: ReviewListComponent
+  },
+  {
+    path: 'login',
+    component: LoginComponent
   }
 ];
 
